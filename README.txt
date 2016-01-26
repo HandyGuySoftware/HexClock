@@ -5,7 +5,7 @@ The Hexadecimal Clock (HexClock) will display the current time and date in both 
 
 Setting the clock
 -----------------
-The clock has two buttons: Mode and Set. Holding the Mode button for three (3) seconds will put the clock into Setup Mode. The LED on the Mode button will light up to indicate that you are in setup mode.
+The clock has two buttons: Mode and Set. Holding the Mode button for 3 seconds will put the clock into Setup Mode. The LED on the Mode button will light up to indicate that you are in setup mode.
 
 When you enter setup mode the display will blank and only the "hours" portion of the display will be lit. 
 
@@ -27,7 +27,7 @@ HexClock uses American date styles (mm/dd/yy). Euro-style dates (dd/mm/yy) will 
 
 Resetting the Clock
 -------------------
-To reset the clock back to its original state (0:00:00 1/1/2016) press *both* the Mode and Set buttons for five (5) seconds. After 5 seconds all the pixels on the display will light up in white until you release the buttons. Once both buttons are released the clock will display the starting time/date. use the procedure above ("Setting the Clock") to set the correct time and date.
+To reset the clock back to its original state (0:00:00 1/1/2016) press *both* the Mode and Set buttons for 5 seconds. After 5 seconds all the pixels on the display will light up in white until you release the buttons. Once both buttons are released the clock will display the starting time/date. use the procedure above ("Setting the Clock") to set the correct time and date.
 
 Parts
 -----
@@ -45,6 +45,20 @@ These are the major parts used. Incidental parts (terminal blocks, power jacks, 
 2 - 10k Ohm Resistors
 1 - 4700 uf Capacitor
 
+Code Modules
+------------
+ButtonMgr - Class to deal with button presses and handle setup mode.
+
+ClockDigit - Class to handle display of digits/characters on the LED matrix
+
+HexClock.ino - Main HexClock Arduino code. Includes setup() and loop() routines, as well as some helper functions that should have gone into classes somewhere, but I got lazy. ;-)
+
+LEDMatrix.cpp - Class to manage display on the LED matrix. A thin wrapper for the Adafruit libraries.
+
+RTClock - Class to get/set time for the real time clock. A wrapper for the DS3231 libraries.
+
+Developer's Note: I used to be a professional developer back in the stone age when we used to chisel our code into stone tablets. As a result, I'm sure I have violated lots of current C/C++/Arduino coding standards. Sorry, not sorry. The code works, so 'nuff said. If someone would like to politely explain where I can bring the code up to current standards I would be happy to incorporate that into a future release. 
+
 Miscellaneous
 -------------
 Special thanks to adafruit_support_mike for helping me through some of the power supply issues
@@ -53,3 +67,10 @@ ToDo:
 - Adjust the color of the panel through Setup mode
 - Adjust the brightness of the panel LEDs (not sure of this is possible with these matrix boards
 - Display Euro-style dates (dd/mm/yy)
+- Choose either 12- or 24-hour notation on the display
+- Clean up the code/better commentary
+
+Comments, suggestions, & contributions (code, not money) are all welcome.
+
+Enjoy!
+
